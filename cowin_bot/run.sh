@@ -1,0 +1,1 @@
+*/60 * * * * cd /Users/arpitkjain/Desktop/Data/POC/cowin/cowin_bot && /usr/local/opt/python@3.8/bin/python3 main.py >> /Users/arpitkjain/Desktop/Data/POC/cowin/cowin_bot/cowinBot_output.log 2>&1

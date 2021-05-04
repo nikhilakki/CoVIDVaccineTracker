@@ -1,0 +1,19 @@
+USERS:
+  - name: Arpit Jain
+    emailId: arpitjain101992@gmail.com
+    state: Maharashtra
+    district: Jalgaon
+    pincode: 425201
+    age_group: 18
+  - name: Shutiket Kolee
+    emailId: arpitjain1012@gmail.com
+    state: Maharashtra
+    district: Pune
+    # pincode: 411097
+    age_group: 18
+  - name: Manish Shah
+    emailId: arpitjain1012@gmail.com
+    state: Madhya Pradesh
+    district: Jabalpur
+    # pincode: 411097
+    age_group: 45
