@@ -7,8 +7,8 @@ from datetime import datetime
 
 
 def send_email(receiver_email, appointment_details, user_name):
-    sender_email = "dobbyaturservice@gmail.com"
-    password = "Test@1234"
+    sender_email = "email"
+    password = "password"
     message = MIMEMultipart("alternative")
     message["Subject"] = "Vaccine slot available"
     message["From"] = sender_email

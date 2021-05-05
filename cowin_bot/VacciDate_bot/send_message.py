@@ -23,6 +23,3 @@ def send_personal_message(msg, chat_id):
     """
     bot = telegram.Bot(token=token)
     bot.sendMessage(chat_id=chat_id, text=msg)
-
-
-# send_mess("Jalgon\nBhusawal\n45\nCOVAXIN")

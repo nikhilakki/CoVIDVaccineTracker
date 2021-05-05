@@ -101,7 +101,7 @@ def deregister(update, context):
 def main():
     """Start the bot."""
     updater = Updater(
-        "1726606541:AAEhx3O4XsHlxlhX8u9_1E_38dS3tgnHlu8", use_context=True
+        "bot id", use_context=True
     )
     dp = updater.dispatcher
 
