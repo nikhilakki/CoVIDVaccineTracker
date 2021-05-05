@@ -12,10 +12,7 @@ config = load_configuration(config_path="data/config.yml")
 
 
 def get_state_list():
-    with open(
-        "/Users/arpitkjain/Desktop/Data/POC/CoVIDVaccineTracker/cowin_bot/data/state_code.json",
-        "r",
-    ) as f:
+    with open("data/state_code.json", "r") as f:
         data = json.load(f)
     list_state = []
     for states in data["states"]:
@@ -35,7 +32,7 @@ def get_all_districts(file_path):
 
 
 def get_district_list(state_id: int):
-    file_path = f"/Users/arpitkjain/Desktop/Data/POC/CoVIDVaccineTracker/cowin_bot/data/district_data/{state_id}.json"
+    file_path = f"data/district_data/{state_id}.json"
     if os.path.isfile(file_path):
         dist_text = get_all_districts(
             file_path=file_path,

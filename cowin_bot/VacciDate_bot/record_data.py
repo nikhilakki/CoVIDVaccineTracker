@@ -1,21 +1,78 @@
 import json
 
 
-def store_data(disctrict_id):
-    print(disctrict_id)
-    with open(
-        "/Users/arpitkjain/Desktop/Data/POC/CoVIDVaccineTracker/cowin_bot/data/check_status.json",
-        "r",
-    ) as f:
+def remove_record(user_data):
+    username = user_data.message.from_user.username
+    with open("data/user_data.json", "r") as f:
         data = json.load(f)
         f.close()
-    dist_list = data["district_list"]
-    set_of_dist = set(dist_list)
-    set_of_dist.add(disctrict_id)
-    data["district_list"] = list(set_of_dist)
-    with open(
-        "/Users/arpitkjain/Desktop/Data/POC/CoVIDVaccineTracker/cowin_bot/data/check_status.json",
-        "w",
-    ) as f:
+    user_data = data["user_data"]
+    user_data.pop(username, None)
+    data.update({"user_data": user_data})
+    with open("data/user_data.json", "w") as f:
+        json.dump(data, f)
+        f.close()
+
+
+def store_data(district_id, user_data):
+    first_name = user_data.message.from_user.first_name
+    last_name = user_data.message.from_user.last_name
+    username = user_data.message.from_user.username
+    chat_id = user_data.message.from_user.id
+    if username == "null":
+        username == f"{first_name}_{last_name}"
+    with open("data/user_data.json", "r") as f:
+        data = json.load(f)
+        f.close()
+    user_data = data["user_data"]
+    existing_user = user_data.get(username, None)
+    if existing_user is None:
+        user_data.update(
+            {
+                username: {
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "chat_id": chat_id,
+                    "districts": [district_id],
+                    "age_groups": [],
+                }
+            }
+        )
+    else:
+        dist_list = existing_user.get("districts")
+        if district_id in dist_list:
+            return True
+        dist_list.append(district_id)
+        existing_user["districts"] = dist_list
+        user_data.update({username: existing_user})
+    data.update({"user_data": user_data})
+    with open("data/user_data.json", "w") as f:
+        json.dump(data, f)
+        f.close()
+
+
+def update_age_group(age_group, user_data):
+    first_name = user_data.message.from_user.first_name
+    last_name = user_data.message.from_user.last_name
+    age_group = int(age_group.split("+")[0])
+    username = user_data.message.from_user.username
+    if username == "null":
+        username == f"{first_name}_{last_name}"
+    with open("data/user_data.json", "r") as f:
+        data = json.load(f)
+        f.close()
+    user_data = data["user_data"]
+    existing_user = user_data.get(username, None)
+    if existing_user is None:
+        return "User does not exist. Please register before updating age group"
+    else:
+        age_group_list = existing_user.get("age_groups")
+        if age_group in age_group_list:
+            return True
+        age_group_list.append(age_group)
+        existing_user["age_groups"] = age_group_list
+        user_data.update({username: existing_user})
+    data.update({"user_data": user_data})
+    with open("data/user_data.json", "w") as f:
         json.dump(data, f)
         f.close()
