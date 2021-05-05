@@ -1,0 +1,26 @@
+{
+    "user_data": {
+        "arpitkjain": {
+            "first_name": "Arpit",
+            "last_name": "Jain",
+            "chat_id": 953862310,
+            "districts": [
+                "390"
+            ],
+            "age_groups": [
+                18
+            ]
+        },
+        "SinghAnkit0808": {
+            "first_name": "AnKiT",
+            "last_name": null,
+            "chat_id": 274540219,
+            "districts": [
+                "395"
+            ],
+            "age_groups": [
+                18
+            ]
+        }
+    }
+}

@@ -2,7 +2,7 @@ import requests
 import json
 import telegram
 
-token = "YOUR_TOKEN"
+token = "1726606541:AAEhx3O4XsHlxlhX8u9_1E_38dS3tgnHlu8"
 url = "https://api.telegram.org/bot" + token
 
 
