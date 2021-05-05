@@ -65,7 +65,7 @@ def get_district(update, context):
         logger.warning("Updating user data")
         res = update_age_group(age_group=state_id, user_data=update)
         update.message.reply_text(
-            "Thankyou for registering.\n\nPlease join the channel to get latest update on vaccine slot.\n\nhttps://t.me/joinchat/HtLv30uoSl82ZDc1"
+            "Thank You for registering.\n\nYou will get notification once the vaccination slot is available in your area"
         )
     elif state_id == "Y":
         logger.warning("User de-registeration")
