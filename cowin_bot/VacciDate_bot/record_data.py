@@ -2,7 +2,12 @@ import json
 
 
 def remove_record(user_data):
+    print(user_data)
     username = user_data.message.from_user.username
+    if username is None:
+        first_name = user_data.message.from_user.first_name
+        chat_id = user_data.message.from_user.id
+        username = f"{first_name}_{chat_id}"
     with open("data/user_data.json", "r") as f:
         data = json.load(f)
         f.close()
@@ -15,12 +20,16 @@ def remove_record(user_data):
 
 
 def store_data(district_id, user_data):
+    print(user_data)
     first_name = user_data.message.from_user.first_name
     last_name = user_data.message.from_user.last_name
     username = user_data.message.from_user.username
+    print(f"{username=}")
+    print(f"{type(username)}")
     chat_id = user_data.message.from_user.id
-    if username == "null":
-        username == f"{first_name}_{last_name}"
+    if username is None:
+        username = f"{first_name}_{chat_id}"
+    print(f"{username=}")
     with open("data/user_data.json", "r") as f:
         data = json.load(f)
         f.close()
@@ -52,12 +61,16 @@ def store_data(district_id, user_data):
 
 
 def update_age_group(age_group, user_data):
+    print(user_data)
     first_name = user_data.message.from_user.first_name
-    last_name = user_data.message.from_user.last_name
+    chat_id = user_data.message.from_user.id
     age_group = int(age_group.split("+")[0])
     username = user_data.message.from_user.username
-    if username == "null":
-        username == f"{first_name}_{last_name}"
+    print(f"{type(username)}")
+    print(f"{username}")
+    if username is None:
+        username = f"{first_name}_{chat_id}"
+    print(f"{username=}")
     with open("data/user_data.json", "r") as f:
         data = json.load(f)
         f.close()
