@@ -18,7 +18,7 @@ class APIInterface:
     @staticmethod
     def get(route, params=None):
         url = route
-        print(f"url = {url}, params = {params}")
+        # print(f"url = {url}, params = {params}")
         response = requests.get(url, params=params)
         if response.status_code != 200:
             raise Exception(

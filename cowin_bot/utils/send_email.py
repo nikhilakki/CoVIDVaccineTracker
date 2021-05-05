@@ -57,12 +57,17 @@ def send_email(receiver_email, appointment_details, user_name):
 def send_email_wrapper(receiver_email: str, appointment_details: str, name: str):
     try:
         df_appointment = pd.DataFrame(appointment_details)
-        today_date = datetime.today().date()
+        date_format = "%Y-%m-%d %H:%M:%S"
+        today_date = datetime.today()
+        today_date = today_date.strftime(date_format)
+        today_date = datetime.strptime(today_date, date_format)
+        print(today_date)
         with open("data/mail_sent_data.json", "r") as f:
             data = json.load(f)
         date = data.get(receiver_email, None)
         if date is not None:
-            if date != str(today_date):
+            delta = today_date - datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
+            if delta.total_seconds() >= 3600:
                 send_email(receiver_email, df_appointment, name)
                 data.update({receiver_email: str(today_date)})
         else:
