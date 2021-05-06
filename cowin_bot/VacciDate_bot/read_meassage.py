@@ -88,7 +88,7 @@ def get_district(update, context):
         dist_text = get_district_list(state_id=state_id)
         update.message.reply_text(dist_text)
         update.message.reply_text(
-            "Please provide 3 DIGIT District code from the list above. If your district code is 1, enter 001"
+            "Please provide 3 DIGIT District code from the list above.\n\nIf your district code is 1, enter 001"
         )
     else:
         logger.warning("Invalid Input")
