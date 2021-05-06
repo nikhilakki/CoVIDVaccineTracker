@@ -8,7 +8,10 @@ class APIInterface:
     def post(route, data=None):
         url = route
         # print(f"url = {url}, data = {data}")
-        response = requests.post(url, json=data)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
+        }
+        response = requests.post(url, json=data, headers=headers)
         if response.status_code != 200:
             raise Exception(
                 f"Call to {route} failed with {response.status_code} and response {response.text}"
@@ -19,7 +22,10 @@ class APIInterface:
     def get(route, params=None):
         url = route
         # print(f"url = {url}, params = {params}")
-        response = requests.get(url, params=params)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
+        }
+        response = requests.get(url, params=params, headers=headers)
         if response.status_code != 200:
             raise Exception(
                 f"Call to {route} failed with {response.status_code} and response {response.text}"
@@ -30,7 +36,10 @@ class APIInterface:
     def put(route, data=None):
         url = route
         # print(f"url = {url}, data = {data}")
-        response = requests.put(url, json=data)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
+        }
+        response = requests.put(url, json=data, headers=headers)
         if response.status_code != 200:
             raise Exception(
                 f"Call to {route} failed with {response.status_code} and response {response.text}"
