@@ -75,7 +75,7 @@ def get_district(update, context):
         )
     elif state_id == "N":
         update.message.reply_text("User de-registeration CANCELLED")
-    elif len(state_id) == 3:
+    elif len(state_id) == 3 and [digit for digit in state_id][0] == "0":
         logger.warning("District selected")
         logger.warning("calling store data")
         res = store_data(district_id=state_id, user_data=update)
