@@ -53,6 +53,7 @@ coverage.xml
 
 # Translations
 *.mo
+*.json
 *.pot
 data/
 # Django stuff:
@@ -73,7 +74,6 @@ docs/_build/
 
 # PyBuilder
 target/
-data/user_data.json
 
 # Jupyter Notebook
 .ipynb_checkpoints

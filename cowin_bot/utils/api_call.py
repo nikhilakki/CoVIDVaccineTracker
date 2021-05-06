@@ -22,6 +22,8 @@ def get_details(district_id, start_date, age_group, chat_id):
             params={"district_id": district_id, "date": start_date},
         )
     )
+    if len(age_group) == 0:
+        age_group.append(18)
     available_slots = get_applicable_slots(
         slot_details=slot_details, age_group=age_group
     )
