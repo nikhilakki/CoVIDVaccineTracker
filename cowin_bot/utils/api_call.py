@@ -19,7 +19,7 @@ def get_details(district_id, start_date, age_group, chat_id):
     slot_details = json.loads(
         APIInterface.get(
             route=get_slot_by_district,
-            params={"district_id": district, "date": start_date},
+            params={"district_id": district_id, "date": start_date},
         )
     )
     available_slots = get_applicable_slots(
