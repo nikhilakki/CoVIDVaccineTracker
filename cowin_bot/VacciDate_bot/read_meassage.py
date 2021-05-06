@@ -75,6 +75,13 @@ def get_district(update, context):
         )
     elif state_id == "N":
         update.message.reply_text("User de-registeration CANCELLED")
+    elif len(state_id) == 3:
+        logger.warning("District selected")
+        logger.warning("calling store data")
+        res = store_data(district_id=state_id, user_data=update)
+        update.message.reply_text(
+            "Please select the Age Group you want notifications for.\n\nEnter '18+' if your age is between 18 and 45 years\n\nEnter '45+' if your age is more than 45 years"
+        )
     elif int(state_id) <= 36:
         logger.warning("State selected")
         logger.warning("getting district data")
@@ -84,11 +91,8 @@ def get_district(update, context):
             "Please provide your District code from the list above."
         )
     else:
-        logger.warning("District selected")
-        logger.warning("calling store data")
-        res = store_data(district_id=state_id, user_data=update)
         update.message.reply_text(
-            "Please select the Age Group you want notifications for.\n\nEnter '18+' if your age is between 18 and 45 years\n\nEnter '45+' if your age is more than 45 years"
+            "Sorry incorrect choice\n\nEnter '18+' or '45+' for age\n\nEnter number between 1-36 for State Code\n\nEnter 3 digit number for district code. If your district code is 1, enter 001"
         )
 
 
