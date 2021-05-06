@@ -16,4 +16,6 @@ for user in data["user_data"].items():
     age_group = user[1].get("age_groups")
     print(chat_id, dist_list, age_group)
     for district_id in dist_list:
-        get_details(district_id, start_date, age_group, chat_id)
+        success = get_details(district_id, start_date, age_group, chat_id)
+        if not success:
+            continue
