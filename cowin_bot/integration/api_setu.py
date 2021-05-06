@@ -47,7 +47,7 @@ def get_instant_applicable_slots(slot_details: dict, age_group: int):
                     #     "Payment Type": slot.get("fee_type"),
                     #     "Time slots": session.get("slots"),
                     # }
-                    booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots"
+                    booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots\n\nhttps://selfregistration.cowin.gov.in/"
                     master_list.append(booking_details)
     return master_list
 
@@ -71,6 +71,6 @@ def get_applicable_slots(slot_details: dict, age_group: list):
                         #     "Payment Type": slot.get("fee_type"),
                         #     "Time slots": session.get("slots"),
                         # }
-                        booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots"
+                        booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots\n\nhttps://selfregistration.cowin.gov.in/"
                         master_list.append(booking_details)
     return master_list
