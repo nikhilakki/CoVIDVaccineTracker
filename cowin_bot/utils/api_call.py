@@ -16,16 +16,15 @@ get_slot_by_pin = config.get("COWIN").get("SLOT_BY_PINCODE")
 
 
 def get_details(district_id, start_date, age_group, chat_id):
-    for district in district_id:
-        slot_details = json.loads(
-            APIInterface.get(
-                route=get_slot_by_district,
-                params={"district_id": district, "date": start_date},
-            )
+    slot_details = json.loads(
+        APIInterface.get(
+            route=get_slot_by_district,
+            params={"district_id": district_id, "date": start_date},
         )
-        available_slots = get_applicable_slots(
-            slot_details=slot_details, age_group=age_group
-        )
+    )
+    available_slots = get_applicable_slots(
+        slot_details=slot_details, age_group=age_group
+    )
     if len(available_slots) > 0:
         print("slot available")
         # message = "\n".join(available_slots)
