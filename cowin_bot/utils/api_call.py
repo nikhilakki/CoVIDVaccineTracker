@@ -29,7 +29,7 @@ def get_details(district_id, start_date, age_group, chat_id):
         print("slot available")
         # message = "\n".join(available_slots)
         # try:
-        for i in range(5):
+        for i in range(min(5, len(available_slots))):
             # response_status, sleep_time = send_mess(text=available_slots[i],chat_id)
             # if not response_status:
             #     print(f"sleeping for {sleep_time} seconds")
