@@ -1,7 +1,9 @@
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from VacciDate_bot.get_data import get_state_list, get_district_list
-from VacciDate_bot.record_data import store_data, update_age_group, remove_record
+
+# from VacciDate_bot.record_data import store_data, update_age_group, remove_record
+from VacciDate_bot.update_db import store_data, store_age_group, remove_record
 from utils.api_call import get_instant_details
 from datetime import datetime
 
@@ -63,7 +65,7 @@ def get_district(update, context):
     elif state_id == "18+" or state_id == "45+":
         logger.warning("Age Group selected")
         logger.warning("Updating user data")
-        res = update_age_group(age_group=state_id, user_data=update)
+        res = store_age_group(age_group=state_id, user_data=update)
         update.message.reply_text(
             "Thank You for registering.\n\nYou will get notification once the vaccination slot is available in your area"
         )
