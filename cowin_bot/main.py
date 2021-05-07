@@ -36,7 +36,7 @@ for dist in dist_set.items():
     try:
         dist_code = dist[0]
         slot_details = trigger_api_setu(district_id=dist_code, start_date=start_date)
-        available_slots = get_generic_slots(slot_details)
+        available_slots = get_generic_slots(slot_details, 18)
         if len(available_slots) > 0:
             print(f"slot available in {dist_code}")
             for chat_id in dist[1]:
