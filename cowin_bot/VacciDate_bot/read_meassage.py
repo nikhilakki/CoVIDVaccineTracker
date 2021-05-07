@@ -62,27 +62,27 @@ def get_district(update, context):
             for message in av_slots:
                 update.message.reply_text(message)
             update.message.reply_text("These are top 5 results in your area.")
-    elif state_id == "18+" or state_id == "45+":
+    elif state_id.lower() == "a" or state_id.lower() == "b":
         logger.warning("Age Group selected")
         logger.warning("Updating user data")
         res = store_age_group(age_group=state_id, user_data=update)
         update.message.reply_text(
             "Thank You for registering.\n\nYou will get notification once the vaccination slot is available in your area"
         )
-    elif state_id == "Y":
+    elif state_id.lower() == "y":
         logger.warning("User de-registeration")
         remove_record(update)
         update.message.reply_text(
             "User de-registered.\n\nThank You for using VacciDate"
         )
-    elif state_id == "N":
+    elif state_id.lower() == "n":
         update.message.reply_text("User de-registeration CANCELLED")
     elif len(state_id) == 3:
         logger.warning("District selected")
         logger.warning("calling store data")
         res = store_data(district_id=state_id, user_data=update)
         update.message.reply_text(
-            "Please select the Age Group you want notifications for.\n\nEnter '18+' if your age is between 18 and 45 years\n\nEnter '45+' if your age is more than 45 years"
+            "Please select the Age Group you want notifications for.\n\nEnter 'A' if your age is between 18 and 45 years\n\nEnter 'B' if your age is more than 45 years"
         )
     elif int(state_id) <= 36:
         logger.warning("State selected")
