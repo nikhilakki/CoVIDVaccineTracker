@@ -25,7 +25,7 @@ def trigger_api_setu(district_id, start_date):
         )
         return slot_details
     except Exception as error:
-        print(f"Exception in get_details function : {error}")
+        print(f"Exception in trigger_api_setu function : {error}")
         return None
 
 
