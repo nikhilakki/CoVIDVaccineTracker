@@ -32,7 +32,6 @@ for rec in data:
         else:
             user_list.append(rec[3])
             dist_set.update({rec[4]: user_list})
-print(dist_set)
 for dist in dist_set.items():
     try:
         dist_code = dist[0]
