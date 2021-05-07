@@ -74,3 +74,19 @@ def get_applicable_slots(slot_details: dict, age_group: list):
                         booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots\n\nhttps://selfregistration.cowin.gov.in/"
                         master_list.append(booking_details)
     return master_list
+
+
+def get_generic_slots(slot_details: dict):
+    master_list = []
+    for slot in slot_details.get("centers"):
+        if len(slot.get("sessions")) > 0:
+            for session in slot.get("sessions"):
+                if (
+                    session.get("min_age_limit") == 18
+                    and session.get("available_capacity") > 0
+                ):
+                    booking_details = f"VACCINE AVAILABLE({session.get('min_age_limit')}+)\n{session.get('date')}\n{slot.get('district_name')}-{slot.get('state_name')}\n{slot.get('name')},{slot.get('address')}\n{session.get('available_capacity')} shots\n\nhttps://selfregistration.cowin.gov.in/"
+                    if len(master_list) == 5:
+                        return master_list
+                    master_list.append(booking_details)
+    return master_list

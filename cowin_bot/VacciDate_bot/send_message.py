@@ -21,5 +21,11 @@ def send_personal_message(msg, chat_id):
     Send a mensage to a telegram user specified on chatId
     chat_id must be a number!
     """
-    bot = telegram.Bot(token=token)
-    bot.sendMessage(chat_id=chat_id, text=msg)
+    try:
+        print(f"send message to : {chat_id}")
+        bot = telegram.Bot(token=token)
+        bot.sendMessage(chat_id=chat_id, text=msg)
+        return True
+    except Exception as error:
+        print(f"Error in send_personal_message : {error}")
+        return False

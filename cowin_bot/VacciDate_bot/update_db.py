@@ -44,6 +44,14 @@ def get(conn, record):
     return c.fetchall()
 
 
+def get_all():
+    conn = sqlite3.connect("db/vaccidate.db")
+    c = conn.cursor()
+    sql = """SELECT * FROM USERS"""
+    c.execute(sql)
+    return c.fetchall()
+
+
 def store_data(district_id, user_data):
     print(user_data)
     conn = sqlite3.connect("db/vaccidate.db")

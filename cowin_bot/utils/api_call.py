@@ -15,6 +15,20 @@ get_slot_by_district = config.get("COWIN").get("SLOT_BY_DISTICT")
 get_slot_by_pin = config.get("COWIN").get("SLOT_BY_PINCODE")
 
 
+def trigger_api_setu(district_id, start_date):
+    try:
+        slot_details = json.loads(
+            APIInterface.get(
+                route=get_slot_by_district,
+                params={"district_id": district_id, "date": start_date},
+            )
+        )
+        return slot_details
+    except Exception as error:
+        print(f"Exception in get_details function : {error}")
+        return None
+
+
 def get_details(district_id, start_date, age_group, chat_id):
     try:
         slot_details = json.loads(
