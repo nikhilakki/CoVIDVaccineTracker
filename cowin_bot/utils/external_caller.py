@@ -26,11 +26,7 @@ class APIInterface:
         url = route
         # print(f"url = {url}, params = {params}")
         headers = {
-            "user-agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:77.0) Gecko/20190101 Firefox/77.0",
-            "referrer": "https://google.com",
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-            "accept-encoding": "gzip, deflate, br",
-            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
         }
         response = requests.get(url, params=params, headers=headers)
         if response.status_code != 200:
