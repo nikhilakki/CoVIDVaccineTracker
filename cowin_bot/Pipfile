@@ -9,6 +9,11 @@ telegram = "*"
 requests = "*"
 
 [dev-packages]
+pylama = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
